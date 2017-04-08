@@ -29,6 +29,7 @@ public class PlaceService {
     public List<Place> find(Keyword keyword) {
         List<Place> places = new ArrayList<Place>();
         GeoApiContext context = new GeoApiContext().setApiKey(config.getGooglekey());
+        System.out.println(config.getGooglekey());
         if (!keyword.getLocation().isEmpty()) {
             // run location google API
             PlacesSearchResponse res;
