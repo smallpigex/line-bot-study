@@ -7,15 +7,6 @@
  * user guide available at https://docs.gradle.org/3.1/userguide/tutorial_java_projects.html
  */
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
-    }
-}
-
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
@@ -51,6 +42,7 @@ dependencies {
     // 'test.useTestNG()' to your build script.
     testCompile 'junit:junit:4.12'
     // https://mvnrepository.com/artifact/org.json/json
+    compile("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
 	compile("org.json:json:20160810")
     compile("org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE")
     compile("org.apache.httpcomponents:httpclient:4.5.3")
