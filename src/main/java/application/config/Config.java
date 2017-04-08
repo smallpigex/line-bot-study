@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @EnableConfigurationProperties
 @ConfigurationProperties("key")
 public class Config {
-    private String googlekey;
+    private String googlekey = "AIzaSyARldaNUe-JAgKwKAZ6Qw_q6opTTku8jB0";
     private String photoTest;
 
     public String getPhotoTest() {
