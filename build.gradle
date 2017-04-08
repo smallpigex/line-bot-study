@@ -9,8 +9,12 @@
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
-apply plugin: 'spring-boot'
-apply plugin: 'idea'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'application.WebApplication'
+    }
+}
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -37,8 +41,4 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-test:1.5.2.RELEASE")
 }
 
-jar {
-    manifest {
-        attributes 'Main-Class': 'application.WebApplication'
-    }
-}
+
