@@ -14,6 +14,14 @@ jar {
     manifest {
         attributes 'Main-Class': 'application.WebApplication'
     }
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+        configurations.runtime.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
 }
 
 // In this section you declare where to find the dependencies of your project
