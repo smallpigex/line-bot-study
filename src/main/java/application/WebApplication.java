@@ -57,8 +57,9 @@ public class WebApplication {
                     List<Action> actions = new ArrayList<Action>();
                     URIAction uriAction = new URIAction("Open Google Map", place.getGoogleMapUrl());
                     actions.add(uriAction);
+                    //"https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13151586_1333441783337759_4465443793710794474_n.jpg?oh=7cae16f8bab3ac9d0df55a2cfbfec5b8&oe=595300A0"
                     CarouselColumn column = new CarouselColumn(
-                            "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13151586_1333441783337759_4465443793710794474_n.jpg?oh=7cae16f8bab3ac9d0df55a2cfbfec5b8&oe=595300A0",
+                            place.getPhoto(),
                             place.getName(), place.getName(), actions);
                     columns.add(column);
                 }
