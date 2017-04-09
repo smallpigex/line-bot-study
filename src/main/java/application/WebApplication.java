@@ -62,6 +62,7 @@ public class WebApplication {
                 CarouselTemplate template = new CarouselTemplate(columns);
                 
                 TemplateMessage templateMsg = new TemplateMessage("Result", template);
+                System.out.println(templateMsg.toString());
                 return templateMsg;
             }
         }
