@@ -60,7 +60,7 @@ public class WebApplication {
                     //"https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/13151586_1333441783337759_4465443793710794474_n.jpg?oh=7cae16f8bab3ac9d0df55a2cfbfec5b8&oe=595300A0"
                     CarouselColumn column = new CarouselColumn(
                             place.getPhoto(),
-                            place.getName(), place.getName(), actions);
+                            place.getName(), place.getAddress(), actions);
                     columns.add(column);
                 }
                 CarouselTemplate template = new CarouselTemplate(columns);
