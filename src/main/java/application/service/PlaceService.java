@@ -7,14 +7,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.google.api.services.urlshortener.Urlshortener;
-import com.google.api.services.urlshortener.UrlshortenerScopes;
 import com.google.maps.GeoApiContext;
 import com.google.maps.PlacesApi;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.LatLng;
-import com.google.maps.model.Photo;
-import com.google.maps.model.PhotoResult;
 import com.google.maps.model.PlaceDetails;
 import com.google.maps.model.PlacesSearchResponse;
 import com.google.maps.model.PlacesSearchResult;
