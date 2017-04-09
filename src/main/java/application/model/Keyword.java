@@ -7,17 +7,17 @@ public class Keyword {
 
     private String placeID = "";
 
-    private String latitude = ""; //緯度
-    private String longtitude = ""; //經度
+    private String latitude = ""; // 緯度
+    private String longtitude = ""; // 經度
     private String location = "";
     private String place = "";
     private String type = "";
-    private float rating = 0.0f;
+    private float rating = 4.0f;
 
     public String getPlaceID() {
         return placeID;
     }
-    
+
     public void setPlaceID(String placeID) {
         this.placeID = placeID;
     }
@@ -43,6 +43,7 @@ public class Keyword {
     }
 
     public void setType(String type) {
+
         this.type = type;
     }
 

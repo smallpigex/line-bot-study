@@ -65,8 +65,9 @@ public class PlaceService {
     private void processResponse(Keyword keyword, List<Place> places, GeoApiContext context, PlacesSearchResponse res)
             throws ApiException, InterruptedException, IOException {
         PlacesSearchResult[] list = res.results;
+        int count = 0;
         for (PlacesSearchResult result : list) {
-            if(result.rating >= keyword.getRating()) {
+            if(result.rating >= keyword.getRating() && count != 5) {
                 Place tmp = new Place();
                 tmp.setName(result.name);
                 tmp.setPlaceId(result.placeId);                        
@@ -74,7 +75,8 @@ public class PlaceService {
                 PlaceDetails pd = PlacesApi.placeDetails(context, result.placeId).language("zh-TW").await();
                 tmp.setGoogleMapUrl(pd.url.toString());
                 tmp.setAddress(pd.formattedAddress);
-                places.add(tmp);                     
+                places.add(tmp);
+                count++;
             }
         }
     }
