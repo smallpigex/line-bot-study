@@ -1,6 +1,5 @@
 package application.service;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +11,8 @@ import com.google.maps.GeoApiContext;
 import com.google.maps.PlacesApi;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.LatLng;
+import com.google.maps.model.Photo;
+import com.google.maps.model.PhotoResult;
 import com.google.maps.model.PlaceDetails;
 import com.google.maps.model.PlacesSearchResponse;
 import com.google.maps.model.PlacesSearchResult;
@@ -22,10 +23,10 @@ import application.model.Place;
 
 @Service
 public class PlaceService {
-    
+
     @Autowired
     private Config config;
-    
+
     public List<Place> find(Keyword keyword) {
         List<Place> places = new ArrayList<Place>();
         GeoApiContext context = new GeoApiContext().setApiKey(config.getGooglekey());
@@ -57,7 +58,7 @@ public class PlaceService {
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
-            }    
+            }
         }
         return places;
     }
@@ -67,14 +68,17 @@ public class PlaceService {
         PlacesSearchResult[] list = res.results;
         int count = 0;
         for (PlacesSearchResult result : list) {
-            if(result.rating >= keyword.getRating() && count != 5) {
+            if (result.rating >= keyword.getRating() && count != 5) {
                 Place tmp = new Place();
                 tmp.setName(result.name);
-                tmp.setPlaceId(result.placeId);                        
+                tmp.setPlaceId(result.placeId);
                 tmp.setRating(result.rating);
                 PlaceDetails pd = PlacesApi.placeDetails(context, result.placeId).language("zh-TW").await();
                 tmp.setGoogleMapUrl(pd.url.toString());
                 tmp.setAddress(pd.formattedAddress);
+               
+                tmp.setPhoto("https://maps.googleapis.com/maps/api/place/photo?maxwidth=" + result.photos[0].width + "&maxheight="
+                        + result.photos[0].height + "&photoreference=" + result.photos[0].photoReference + "&key=" + config.getGooglekey());
                 places.add(tmp);
                 count++;
             }

@@ -10,6 +10,7 @@ public class Place {
     private String name = "";
     private float rating = 0;
     private String googleMapUrl = "";
+    private String photo = "";
 
     public float getRating() {
         return rating;
@@ -59,6 +60,14 @@ public class Place {
 
     public void setGoogleMapUrl(String googleMapUrl) {
         this.googleMapUrl = googleMapUrl;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
 }
