@@ -56,7 +56,7 @@ public class WebApplication {
                     List<Action> actions = new ArrayList<Action>();
                     URIAction uriAction = new URIAction("abc", place.getGoogleMapUrl());
                     actions.add(uriAction);
-                    CarouselColumn column = new CarouselColumn("", place.getName(), place.getName(), actions);
+                    CarouselColumn column = new CarouselColumn("yooo", place.getName(), place.getName(), actions);
                     columns.add(column);
                 }
                 CarouselTemplate template = new CarouselTemplate(columns);
