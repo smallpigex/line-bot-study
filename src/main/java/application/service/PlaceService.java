@@ -75,8 +75,9 @@ public class PlaceService {
                 tmp.setGoogleMapUrl(pd.url.toString());
                 tmp.setAddress(pd.formattedAddress);
                
-                tmp.setPhoto("https://maps.googleapis.com/maps/api/place/photo?maxwidth=" + result.photos[0].width + "&maxheight="
-                        + result.photos[0].height + "&photoreference=" + result.photos[0].photoReference + "&key=" + config.getGooglekey());
+//                tmp.setPhoto("https://maps.googleapis.com/maps/api/place/photo?maxwidth=" + result.photos[0].width + "&maxheight="
+//                        + result.photos[0].height + "&photoreference=" + result.photos[0].photoReference + "&key=" + config.getGooglekey());
+                tmp.setPhoto(result.photos[0].photoReference);
                 places.add(tmp);
                 count++;
             }
