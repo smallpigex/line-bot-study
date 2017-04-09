@@ -74,6 +74,9 @@ public class PlaceService {
                 PlaceDetails pd = PlacesApi.placeDetails(context, result.placeId).language("zh-TW").await();
                 tmp.setGoogleMapUrl(pd.url.toString());
                 tmp.setAddress(pd.formattedAddress);
+               
+                tmp.setPhoto("https://maps.googleapis.com/maps/api/place/photo?maxwidth=" + result.photos[0].width + "&maxheight="
+                        + result.photos[0].height + "&photoreference=" + result.photos[0].photoReference + "&key=" + config.getGooglekey());
                 places.add(tmp);
                 count++;
             }
