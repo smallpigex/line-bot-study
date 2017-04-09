@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.linecorp.bot.model.action.Action;
+import com.linecorp.bot.model.action.MessageAction;
 import com.linecorp.bot.model.action.URIAction;
 import com.linecorp.bot.model.event.Event;
 import com.linecorp.bot.model.event.MessageEvent;
@@ -34,7 +35,7 @@ public class WebApplication {
 	}
 	
 	@EventMapping
-    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
+    public TemplateMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
 	    
         System.out.println("event: " + event);
         String text = event.getMessage().getText();
@@ -66,7 +67,16 @@ public class WebApplication {
                 return templateMsg;
             }
         }
-        return new TextMessage("勿擾");
+        List<CarouselColumn> columns = new ArrayList<CarouselColumn>(); 
+        List<Action> actions = new ArrayList<Action>();
+        MessageAction uriAction = new MessageAction("勿擾", "勿擾");
+        actions.add(uriAction);
+        CarouselColumn column = new CarouselColumn("", "勿擾", "勿擾", actions);
+        columns.add(column);
+        CarouselTemplate template = new CarouselTemplate(columns);
+        TemplateMessage templateMsg = new TemplateMessage("Result", template);
+        System.out.println(templateMsg.toString());
+        return templateMsg;
     }
 
     @EventMapping
