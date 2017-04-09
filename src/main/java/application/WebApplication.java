@@ -39,7 +39,7 @@ public class WebApplication {
         System.out.println("event: " + event);
         String text = event.getMessage().getText();
         String[] textArray = text.split(" ");
-        if(textArray.length == 4 && textArray[1].equals("餓惹")) {
+        if(textArray.length == 4 && textArray[0].equals("餓惹")) {
             Keyword keyord = new Keyword();
             keyord.setPlace(textArray[1]);
             keyord.setType(textArray[2]);
