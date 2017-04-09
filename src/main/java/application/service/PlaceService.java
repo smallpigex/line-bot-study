@@ -7,6 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.api.services.urlshortener.Urlshortener;
+import com.google.api.services.urlshortener.UrlshortenerScopes;
 import com.google.maps.GeoApiContext;
 import com.google.maps.PlacesApi;
 import com.google.maps.errors.ApiException;
@@ -76,9 +78,6 @@ public class PlaceService {
                 PlaceDetails pd = PlacesApi.placeDetails(context, result.placeId).language("zh-TW").await();
                 tmp.setGoogleMapUrl(pd.url.toString());
                 tmp.setAddress(pd.formattedAddress);
-               
-                tmp.setPhoto("https://maps.googleapis.com/maps/api/place/photo?maxwidth=" + result.photos[0].width + "&maxheight="
-                        + result.photos[0].height + "&photoreference=" + result.photos[0].photoReference + "&key=" + config.getGooglekey());
                 places.add(tmp);
                 count++;
             }
