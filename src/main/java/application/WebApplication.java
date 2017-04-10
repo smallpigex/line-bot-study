@@ -70,7 +70,7 @@ public class WebApplication {
                 return templateMsg;
             }
         }
-        return new TextMessage("");
+        return new TextMessage("勿擾");
     }
 
     @EventMapping
