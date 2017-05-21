@@ -24,12 +24,10 @@ public class PlaceService {
 
     @Autowired
     private Config config;
-    @Autowired 
-    GeoApiContext context;
 
     public List<Place> find(Keyword keyword) {
         List<Place> places = new ArrayList<Place>();
-        context.setApiKey(config.getGooglekey());
+        GeoApiContext context = new GeoApiContext().setApiKey(config.getGooglekey());
         if (!keyword.getLocation().isEmpty()) {
             // run location google API
             PlacesSearchResponse res;
