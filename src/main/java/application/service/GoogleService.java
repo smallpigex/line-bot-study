@@ -23,7 +23,7 @@ public class GoogleService {
     private Config config;
 
     public String findLocation(String place) {
-        // google api
+        // google API
         String content = "";
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(
@@ -57,7 +57,7 @@ public class GoogleService {
     }
 
     public String findPlaces(String query) {
-        // google apis
+        // google API
         String resBody = "";
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet("https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + query

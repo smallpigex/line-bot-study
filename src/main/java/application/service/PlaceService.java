@@ -24,11 +24,12 @@ public class PlaceService {
 
     @Autowired
     private Config config;
+    @Autowired 
+    GeoApiContext context;
 
     public List<Place> find(Keyword keyword) {
         List<Place> places = new ArrayList<Place>();
-        GeoApiContext context = new GeoApiContext().setApiKey(config.getGooglekey());
-        System.out.println(config.getGooglekey());
+        context.setApiKey(config.getGooglekey());
         if (!keyword.getLocation().isEmpty()) {
             // run location google API
             PlacesSearchResponse res;
@@ -75,9 +76,9 @@ public class PlaceService {
                 tmp.setGoogleMapUrl(pd.url.toString());
                 tmp.setAddress(pd.formattedAddress);
                
-//                tmp.setPhoto("https://maps.googleapis.com/maps/api/place/photo?maxwidth=" + result.photos[0].width + "&maxheight="
-//                        + result.photos[0].height + "&photoreference=" + result.photos[0].photoReference + "&key=" + config.getGooglekey());
-                tmp.setPhoto(result.photos[0].photoReference);
+                tmp.setPhoto("https://maps.googleapis.com/maps/api/place/photo?maxwidth=" + result.photos[0].width + "&maxheight="
+                        + result.photos[0].height + "&photoreference=" + result.photos[0].photoReference + "&key=" + config.getGooglekey());
+                //tmp.setPhoto(result.photos[0].photoReference);
                 places.add(tmp);
                 count++;
             }
