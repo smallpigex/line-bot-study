@@ -11,9 +11,9 @@ import com.linecorp.bot.model.message.TemplateMessage;
 import com.linecorp.bot.model.message.TextMessage;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
-import application.line.service.LinePlaceSearchSvc;
 import application.model.Keyword;
 import application.service.LineMessageFilter;
+import application.service.line.LinePlaceSearchSvc;
 
 @SpringBootApplication
 @LineMessageHandler

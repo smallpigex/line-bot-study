@@ -1,4 +1,4 @@
-package application.line.service;
+package application.service.line;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
