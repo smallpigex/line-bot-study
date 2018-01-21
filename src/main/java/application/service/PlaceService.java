@@ -31,7 +31,7 @@ public class PlaceService {
       String query = keyword.getType() + " " + keyword.getPlace();
       res = googlePlaceApiSvc.textSearchQueryAwait(query);
     }
-    return processResponse(res, keyword.getRating(), 1);
+    return processResponse(res, keyword.getRating(), keyword.getNumber());
   }
 
   private List<Place> processResponse(PlacesSearchResponse res, float rating, int numberOfStore) {
