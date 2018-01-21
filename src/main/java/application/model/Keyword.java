@@ -13,6 +13,8 @@ public class Keyword {
     private String place = "";
     private String type = "";
     private float rating = 4.0f;
+    private int number = 5;
+    private boolean isNull = true;
 
     public String getPlaceID() {
         return placeID;
@@ -69,6 +71,22 @@ public class Keyword {
 
     public void setLongtitude(String longtitude) {
         this.longtitude = longtitude;
+    }
+
+    public boolean isNull() {
+      return isNull;
+    }
+
+    public void setNull(boolean isNull) {
+      this.isNull = isNull;
+    }
+
+    public int getNumber() {
+      return number;
+    }
+
+    public void setNumber(int number) {
+      this.number = number;
     }
 
 }

@@ -1,0 +1,9 @@
+google:
+  apikey: ${apikey}
+line.bot:
+  channel-token: ${line-token}
+  channel-secret: ${line-secret}
+  handler.path: /callback
+  
+app:
+  zhTW: zh-TW

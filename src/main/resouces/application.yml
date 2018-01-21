@@ -1,7 +1,0 @@
-key:
-  googlekey: AIzaSyARldaNUe-JAgKwKAZ6Qw_q6opTTku8jB0
-  photoTest: CoQBdwAAAI3XPIUlZV4kBcLvf_bHc9YaHiuicSaR6w0ATB6dVcuAPsjj8pCQFQJ0J_8mRnagy0FLCqfv51Np-Y1bYaFbq6h9ZJye2RcoDCH5EYKPVUJA_lIEp_0TK3pUJEkjWYUhxYUUete8RlGjJ7bMheI-JDUwqqAUVMsnpPLloeOtxtW6EhDjIMBhL2S46KyQyJ8CYqabGhQ5-eRqm8trEvJFhEhHvqYRlIWSgw
-line.bot:
-  channel-token: ${ChannelAccessToken}
-  channel-secret: ${ChannelSecret}
-  handler.path: /callback

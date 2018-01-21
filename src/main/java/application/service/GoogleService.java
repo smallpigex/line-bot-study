@@ -1,33 +1,30 @@
 package application.service;
 
 import java.io.IOException;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
-import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import application.config.Config;
+import application.config.GoogleConfig;
 
 @Service
 public class GoogleService {
 
     @Autowired
-    private Config config;
+    private GoogleConfig config;
 
     public String findLocation(String place) {
         // google API
         String content = "";
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(
-                "https://maps.googleapis.com/maps/api/geocode/json?address=" + place + "&key=" + config.getGooglekey());
+                "https://maps.googleapis.com/maps/api/geocode/json?address=" + place + "&key=" + config.getApikey());
 
         try {
             ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
@@ -61,7 +58,7 @@ public class GoogleService {
         String resBody = "";
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet("https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + query
-                + "&key=" + config.getGooglekey());
+                + "&key=" + config.getApikey());
 
         try {
             ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
@@ -94,7 +91,7 @@ public class GoogleService {
         // google apis
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet("https://maps.googleapis.com/maps/api/place/details/json?placeid=" + placeID
-                + "&key=" + config.getGooglekey());
+                + "&key=" + config.getApikey());
 
         try {
             ResponseHandler<String> responseHandler = new ResponseHandler<String>() {

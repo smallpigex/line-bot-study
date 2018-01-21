@@ -6,28 +6,25 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableConfigurationProperties
-@ConfigurationProperties("key")
-public class Config {
-    private String googlekey = System.getenv("googlekey");
+@ConfigurationProperties("google")
+public class GoogleConfig {
+  
+    private String apikey ;
     private String photoTest;
 
     public String getPhotoTest() {
         return photoTest;
     }
-
     public void setPhotoTest(String photoTest) {
         this.photoTest = photoTest;
     }
-
-    public Config() {
+    public GoogleConfig() {
     }
-
-    public String getGooglekey() {
-        return googlekey;
+    public String getApikey() {
+      return apikey;
     }
-
-    public void setGooglekey(String googlekey) {
-        this.googlekey = googlekey;
+    public void setApikey(String apikey) {
+      this.apikey = apikey;
     }
 
 }
