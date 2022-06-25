@@ -19,7 +19,6 @@ public class GoogleApiController {
     
     @GetMapping(value = "/search")
     public @ResponseBody List<Place> search (@RequestBody Keyword place) { 
-        foodService.find(place);
         return foodService.find(place);
     }
 }
