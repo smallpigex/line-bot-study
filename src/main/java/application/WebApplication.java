@@ -16,31 +16,12 @@ import application.service.LineMessageFilter;
 import application.service.line.LinePlaceSearchSvc;
 
 @SpringBootApplication
-@LineMessageHandler
 public class WebApplication {
-  @Autowired
-  LinePlaceSearchSvc linePlaceSearchSvc;
 
-  public static void main(String args[]) {
-    SpringApplication.run(WebApplication.class, args);
-  }
 
-  @EventMapping
-  public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
-
-    String text = event.getMessage().getText();
-    LineMessageFilter filter = new LineMessageFilter();
-    Keyword keyword = filter.filtKey(text);
-    if(keyword.isNull()) {
-      return new TextMessage(text);
+    public static void main(String[] args) {
+        SpringApplication.run(WebApplication.class, args);
     }
-    TemplateMessage templateMsg = new TemplateMessage("Result", linePlaceSearchSvc.getPlaceTemplate(keyword));
-    return templateMsg;
-  }
 
-  @EventMapping
-  public void handleDefaultMessageEvent(Event event) {
-    System.out.println("event: " + event);
-  }
 
 }

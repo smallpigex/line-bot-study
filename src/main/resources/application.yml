@@ -1,5 +1,6 @@
 google:
-  apikey: ${apikey}
+  api-key: ${apikey}
+  photo-url: https://maps.googleapis.com/maps/api/place/phot
 line.bot:
   channel-token: ${line-token}
   channel-secret: ${line-secret}

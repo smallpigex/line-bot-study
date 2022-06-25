@@ -1,92 +1,22 @@
 package application.model;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Component;
 
-@Component
+@Getter
+@Setter
 public class Keyword {
 
     private String placeID = "";
 
     private String latitude = ""; // 緯度
-    private String longtitude = ""; // 經度
+    private String longitude = ""; // 經度
     private String location = "";
     private String place = "";
     private String type = "";
     private float rating = 4.0f;
     private int number = 5;
     private boolean isNull = true;
-
-    public String getPlaceID() {
-        return placeID;
-    }
-
-    public void setPlaceID(String placeID) {
-        this.placeID = placeID;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getPlace() {
-        return place;
-    }
-
-    public void setPlace(String place) {
-        this.place = place;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-
-        this.type = type;
-    }
-
-    public float getRating() {
-        return rating;
-    }
-
-    public void setRating(float rating) {
-        this.rating = rating;
-    }
-
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getLongtitude() {
-        return longtitude;
-    }
-
-    public void setLongtitude(String longtitude) {
-        this.longtitude = longtitude;
-    }
-
-    public boolean isNull() {
-      return isNull;
-    }
-
-    public void setNull(boolean isNull) {
-      this.isNull = isNull;
-    }
-
-    public int getNumber() {
-      return number;
-    }
-
-    public void setNumber(int number) {
-      this.number = number;
-    }
 
 }

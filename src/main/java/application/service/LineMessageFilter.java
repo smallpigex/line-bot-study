@@ -15,14 +15,14 @@ public class LineMessageFilter {
     return number.matches("\\d*\\.?\\d*");
   }
   
-  public Keyword filtKey(String text) {
+  public Keyword grepKey(String text) {
     Keyword key = new Keyword();
     if(!isRightKey(text)) return key;
     String[] split = text.split(" ");
     if(!isRightLength(split)) return key;
     float rate = 4.0f; 
     if(isFloat(split[3])) {
-      rate = Float.valueOf(split[3]);
+      rate = Float.parseFloat(split[3]);
     }
     key.setPlace(split[1]);
     key.setType(split[2]);

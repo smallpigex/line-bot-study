@@ -24,8 +24,8 @@ public class PlaceService {
   public List<Place> find(Keyword keyword) {
     PlacesSearchResponse res;
     if (!keyword.getLocation().isEmpty()) {
-      LatLng latLng = new LatLng(Double.valueOf(keyword.getLatitude()),
-          Double.valueOf(keyword.getLongtitude()));
+      LatLng latLng = new LatLng(Double.parseDouble(keyword.getLatitude()),
+          Double.parseDouble(keyword.getLongitude()));
       res = googlePlaceApiSvc.nearbySearchQueryAwait(latLng, keyword.getType(), 500);
     } else {
       String query = keyword.getType() + " " + keyword.getPlace();

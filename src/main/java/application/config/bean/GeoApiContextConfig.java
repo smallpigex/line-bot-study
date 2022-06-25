@@ -14,8 +14,9 @@ public class GeoApiContextConfig {
   
   @Bean
   public GeoApiContext getGeoApiContextBean() {
-    GeoApiContext context = new GeoApiContext().setApiKey(config.getApikey());
-    return context;
+    return new GeoApiContext.Builder()
+            .apiKey(config.getApikey())
+            .build();
   }
 
 }

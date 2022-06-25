@@ -11,6 +11,7 @@ public class GoogleConfig {
   
     private String apikey ;
     private String photoTest;
+    private String photoURI;
 
     public String getPhotoTest() {
         return photoTest;
